@@ -4,6 +4,7 @@ $(document).ready(function(){
   let inputForm = $('#action');
   inputForm.focus();
   $('#add').click(addItem);
+  $(window).on('keypress', handleKey);
 
   function addItem() {
     let action = inputForm.val();
@@ -23,5 +24,9 @@ $(document).ready(function(){
 
   function deleteItem() {
     $(this).closest('tr').remove();
+  }
+
+  function handleKey(e) {
+    if (e.charCode === 13 && inputForm.val() !== '') addItem();
   }
 })
