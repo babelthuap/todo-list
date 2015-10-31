@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>More Bootstrap</title>
+
+  <!-- include Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <h1>Todo List</h1>
+
+    <table id="list" class="table table-striped table-bordered">
+      <tbody>
+        <tr>
+          <th>Item</th>
+          <th>Due Date</th>
+          <th></th>
+        </tr>
+        <tr>
+          <td><input type="text" size="40" id="action"></td>
+          <td><input type="date" id="duedate"></td>
+          <td><button id="add">Add</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+</div>
+  <!-- Bootstrap’s JavaScript requires jQuery -->
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script> -->
+  <script src="main.js"></script>
+</body>
+</html>
