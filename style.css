@@ -1,4 +1,16 @@
+body * {
+  color: #D48900;
+}
+
+#input input, #add {
+  color: black;
+}
+
 .delete {
   position: relative;
   right: -2em;
+}
+
+.done {
+  text-decoration: line-through;
 }
