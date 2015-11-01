@@ -1,9 +1,13 @@
 body * {
-  color: #D48900;
+  color: orange;
 }
 
-#input input, #add {
+#input input, #clear, #add {
   color: black;
+}
+
+#clear, #add {
+  background-color: orange;
 }
 
 .delete {
