@@ -34,7 +34,7 @@ $(document).ready(function(){
   }
 
   function checkOffItem() {
-    $(this).closest('tr').children().first().toggleClass('done');
+    $(this).closest('tr').children().not(':last').toggleClass('done');
   }
 
   function handleKey(e) {
