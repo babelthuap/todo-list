@@ -7,17 +7,12 @@ $(document).ready(function(){
   // each item is of the form [action, duedate, isChecked (boolean), ID]
   var items = localStorage.items ? JSON.parse(localStorage.items) : [];
 
-  console.log('before init:', localStorage.items);
-
   var init = true;
   items.forEach(function(item) {
     var $item = createItem(item[0], item[1], item[2], item[3]);
     $('#list').append($item);
   })
   init = false;
-
-  console.log('after init:', localStorage.items);
-
 
   var itemNum = items.length > 0 ? +items[items.length - 1][3] + 1 : 0;
 
@@ -43,13 +38,14 @@ $(document).ready(function(){
 
   function createItem(action, duedate, checked, id) {
     let $item = $('<tr>').addClass('item').attr('id', id);
-    let $checkbox = $('<input>').attr('type', 'checkbox').click(checkOffItem);
-    $checkbox[0].checked = checked;
+    let $checkbox = $('<input>').attr('type', 'checkbox').attr('checked', checked).click(checkOffItem);
     let $xMark = $('<a>').attr('href', '#').text('X').addClass('delete').click(deleteItem);
     $item.append( $('<td>').text(action) )
          .append( $('<td>').text(duedate) )
          .append( $('<td>').append($checkbox).append($xMark) );
-    if (checked) { checkOffItem.call($item); }
+    if (checked) {
+      checkOffItem.call($item);
+    }
     return $item;
   }
 
@@ -58,7 +54,6 @@ $(document).ready(function(){
     var id = $item.attr('id');
 
     items.splice(findInItemsByID(id), 1);
-
     localStorage.items = JSON.stringify(items);
     $item.remove();
   }
