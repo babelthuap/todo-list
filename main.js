@@ -1,20 +1,20 @@
-$(document).ready(function(){
+$(document).ready(() => {
   'use strict';
 
   let inputForm = $('#action');
   inputForm.focus();
 
   // each item is of the form [action, duedate, isChecked (boolean), ID]
-  var items = localStorage.items ? JSON.parse(localStorage.items) : [];
+  let items = localStorage.items ? JSON.parse(localStorage.items) : [];
 
-  var init = true;
-  items.forEach(function(item) {
-    var $item = createItem(item[0], item[1], item[2], item[3]);
+  let init = true;
+  items.forEach((item) => {
+    let $item = createItem(item[0], item[1], item[2], item[3]);
     $('#list').append($item);
   })
   init = false;
 
-  var itemNum = items.length > 0 ? +items[items.length - 1][3] + 1 : 0;
+  let itemNum = items.length > 0 ? +items[items.length - 1][3] + 1 : 0;
 
   $('#add').click(addItem);
   $('#clear').click(clear);
@@ -50,8 +50,8 @@ $(document).ready(function(){
   }
 
   function deleteItem() {
-    var $item = $(this).closest('tr');
-    var id = $item.attr('id');
+    let $item = $(this).closest('tr');
+    let id = $item.attr('id');
 
     items.splice(findInItemsByID(id), 1);
     localStorage.items = JSON.stringify(items);
@@ -66,8 +66,8 @@ $(document).ready(function(){
   }
 
   function checkOffItem() {
-    var id = $(this).closest('tr').attr('id');
-    var indexInItems = findInItemsByID(id);
+    let id = $(this).closest('tr').attr('id');
+    let indexInItems = findInItemsByID(id);
 
     if (!init) {
       items[indexInItems][2] = !items[indexInItems][2];
@@ -79,7 +79,7 @@ $(document).ready(function(){
 
   // returns the index of the item with the specified ID, or -1 if not found
   function findInItemsByID(id) {
-    for (var i = 0; i < items.length; i++) {
+    for (let i = 0; i < items.length; i++) {
       if (items[i][3] == id) return i;
     }
     return -1;
